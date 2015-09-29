@@ -1,8 +1,8 @@
 (ns adventure-game.core)
 
 (def player-state
-  [{:room "room 1"
-    :health "healthy"}])
+  {:room "room 1"
+    :health "healthy"})
 
 (def rooms
   [{:name "room 1"
@@ -18,16 +18,19 @@
     :backward "room 2"
     :description "The darkest room..."}])
 
-(defn move
+(defn move [direction state]
   "I move the player to a new room"
-  [x]
-  (println x "Hello, World!"))
+  ;; (filter rooms)
+  ;; (filter #(= (:name %) "room 2") rooms)
+  (assoc state :room (get (first (filter #(= (:name %) (get state :room)) rooms)) direction))
+  ;; (filter #(= (:name %) (get state :room)) rooms)
+  )
 
-(defn action [input]
+(defn action [input state]
   "performing game action"
-  (prn (cond (= input "forward") "moving forward"
-        (= input "backward") "moving backward"
-        :else :do-that-other-thing))
+  (cond (= input "forward") (move :forward state)
+        (= input "backward") (move :backward state)
+        :else state)
   )
 
 ;; (defn move [direction]
@@ -36,8 +39,11 @@
 (defn game-loop [input state]
   ;; (prn input)
   (if (not (= "exit" input))
-    (let [new-state (action input)]
+    (let [new-state (action input state)]
+    (do
+    (prn state)
     (game-loop (read-line) new-state))
+      )
     (prn "Exiting...")))
 
 (defn -main [& args]
