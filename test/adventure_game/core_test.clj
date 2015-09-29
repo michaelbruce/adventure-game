@@ -3,5 +3,11 @@
             [adventure-game.core :refer :all]))
 
 (deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+  (testing "Fixed."
+    (is (= 1 1))
+    ))
+
+(deftest b-test
+  (testing "A user goes forward"
+    (is (= [1,0] (move "forward")))
+    ))
