@@ -2,7 +2,7 @@
 
 (def player-state
   {:room "room 1"
-    :health "healthy"})
+   :health "healthy"})
 
 (def rooms
   [{:name "room 1"
@@ -36,9 +36,9 @@
 (defn game-loop [input state]
   (if (not (= "exit" input))
     (let [new-state (action input state)]
-    (do
-      (prn state)
-      (game-loop (read-line) new-state))
+      (do
+        (prn state)
+        (game-loop (read-line) new-state))
       )
     (prn "Exiting...")))
 
