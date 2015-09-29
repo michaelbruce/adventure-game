@@ -37,8 +37,8 @@
   (if (not (= "exit" input))
     (let [new-state (action input state)]
     (do
-    (prn state)
-    (game-loop (read-line) new-state))
+      (prn state)
+      (game-loop (read-line) new-state))
       )
     (prn "Exiting...")))
 

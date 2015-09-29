@@ -1,10 +1,19 @@
 # adventure-game
 
-A Clojure library designed to ... well, that part is up to you.
+A simple text adventure written in clojure.
 
 ## Usage
 
-FIXME
+use key commands to interact with the world,  
+so far only 'forward' and 'backward' are keywords
+
+## Contributors
+
+3 guys from London Clojurians
+
+## Lessons Learned
+
+don't forget about namespace! - `(ns adventure-game.core)` means something...
 
 ## License
 
