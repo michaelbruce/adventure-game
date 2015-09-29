@@ -37,10 +37,12 @@
   (if (not (= "exit" input))
     (let [new-state (action input state)]
       (do
-        (prn state)
+        (prn new-state)
         (game-loop (read-line) new-state))
       )
-    (prn "Exiting...")))
+    (prn "Exiting...")
+    )
+  )
 
 (defn -main [& args]
   (game-loop "start" player-state))
