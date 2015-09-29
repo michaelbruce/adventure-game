@@ -20,10 +20,10 @@
 
 (defn move [direction state]
   "I move the player to a new room"
-  ;; (filter rooms)
-  ;; (filter #(= (:name %) "room 2") rooms)
-  (assoc state :room (get (first (filter #(= (:name %) (get state :room)) rooms)) direction))
-  ;; (filter #(= (:name %) (get state :room)) rooms)
+  (assoc state :room
+         (get
+           (first (filter #(= (:name %) (get state :room)) rooms))
+           direction))
   )
 
 (defn action [input state]
@@ -33,11 +33,7 @@
         :else state)
   )
 
-;; (defn move [direction]
-;;   (cond (= direction "forward") "state"
-
 (defn game-loop [input state]
-  ;; (prn input)
   (if (not (= "exit" input))
     (let [new-state (action input state)]
     (do
@@ -48,4 +44,3 @@
 
 (defn -main [& args]
   (game-loop "start" player-state))
-
