@@ -1,5 +1,12 @@
 (ns adventure-game.core)
 
+(def welcome-message
+  "This is ADVENTURE GAME!
+   -----------------------
+   type 'forward' and 'backward' to move\n
+   type 'help' for more information and finally,\n
+   good luck on your quest.")
+
 (def player-state
   {:room "room 1"
    :health "healthy"})
@@ -45,4 +52,5 @@
   )
 
 (defn -main [& args]
+  (println welcome-message)
   (game-loop "start" player-state))
