@@ -35,8 +35,10 @@
 
 (defn action [input state]
   "performing game action"
-  (cond (= input "forward") (move :forward state)
-        (= input "backward") (move :backward state)
+  (cond (or (= input "f")
+            (= input "forward")) (move :forward state)
+        (or (= input "b")
+            (= input "backward")) (move :backward state)
         :else state)
   )
 
