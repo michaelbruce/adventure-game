@@ -7,6 +7,9 @@
    type 'help' for more information and finally,\n
    good luck on your quest.")
 
+(def help-message
+  "Yeah... you're on your own...")
+
 (def player-state
   {:room "room 1"
    :health "healthy"})
@@ -39,7 +42,9 @@
             (= input "forward")) (move :forward state)
         (or (= input "b")
             (= input "backward")) (move :backward state)
-        :else state)
+        (or (= input "h")
+            (= input "help")) (println help-message)
+        :else (println "Action not available"))
   )
 
 (defn game-loop [input state]
