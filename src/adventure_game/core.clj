@@ -44,6 +44,7 @@
             (= input "backward")) (move :backward state)
         (or (= input "h")
             (= input "help")) (println help-message)
+        (= input "start-game") (println welcome-message)
         :else (println "Action not available"))
   )
 
@@ -59,5 +60,4 @@
   )
 
 (defn -main [& args]
-  (println welcome-message)
-  (game-loop "start" player-state))
+  (game-loop "start-game" player-state))
